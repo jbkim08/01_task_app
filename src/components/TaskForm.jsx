@@ -2,7 +2,7 @@ import { useState } from "react";
 import Tag from "./Tag";
 import "./TaskForm.css";
 
-export default function TaskForm() {
+export default function TaskForm({ setTasks }) {
   //할일을 객체로 관리(여러 입력)
   const [taskData, setTaskData] = useState({
     task: "",
@@ -37,6 +37,9 @@ export default function TaskForm() {
   const handleSubmit = (e) => {
     e.preventDefault(); //이벤트 중지
     console.log(taskData);
+    setTasks((prev) => {
+      return [...prev, taskData]; //새 할일 추가
+    });
   };
   return (
     <header className="app_header">

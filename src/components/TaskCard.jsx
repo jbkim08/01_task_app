@@ -2,15 +2,16 @@ import "./TaskCard.css";
 import Tag from "./Tag";
 import deleteIcon from "../assets/delete.png";
 
-export default function TaskCard() {
+export default function TaskCard({ title, tags }) {
   return (
     <article className="task_card">
-      <p className="task_text">샘플 내용입니다.</p>
+      <p className="task_text">{title}</p>
 
       <div className="task_card_bottom_line">
         <div className="task_card_tags">
-          <Tag tagName="HTML" />
-          <Tag tagName="CSS" />
+          {tags.map((tag, index) => (
+            <Tag key={index} tagName={tag} selected={true} />
+          ))}
         </div>
         <div className="task_delete">
           <img className="delete_icon" src={deleteIcon} alt="" />
