@@ -2,7 +2,7 @@ import "./TaskCard.css";
 import Tag from "./Tag";
 import deleteIcon from "../assets/delete.png";
 
-export default function TaskCard({ title, tags }) {
+export default function TaskCard({ title, tags, handleDelete, index }) {
   return (
     <article className="task_card">
       <p className="task_text">{title}</p>
@@ -13,7 +13,7 @@ export default function TaskCard({ title, tags }) {
             <Tag key={index} tagName={tag} selected={true} disabled />
           ))}
         </div>
-        <div className="task_delete">
+        <div className="task_delete" onClick={() => handleDelete(index)}>
           <img className="delete_icon" src={deleteIcon} alt="" />
         </div>
       </div>

@@ -8,18 +8,35 @@ import { useState } from "react";
 
 export default function App() {
   const [tasks, setTasks] = useState([]);
+  const handleDelete = (taskIndex) => {
+    const newTasks = tasks.filter((task, index) => index !== taskIndex);
+    setTasks(newTasks); //업데이트
+  };
   return (
     <div className="app">
       <TaskForm setTasks={setTasks} />
       <main className="app_main">
-        <TaskColumn title="할일" icon={todoIcon} tasks={tasks} status="todo" />
+        <TaskColumn
+          title="할일"
+          icon={todoIcon}
+          tasks={tasks}
+          status="todo"
+          handleDelete={handleDelete}
+        />
         <TaskColumn
           title="진행 중"
           icon={doingIcon}
           tasks={tasks}
           status="doing"
+          handleDelete={handleDelete}
         />
-        <TaskColumn title="완료" icon={doneIcon} tasks={tasks} status="done" />
+        <TaskColumn
+          title="완료"
+          icon={doneIcon}
+          tasks={tasks}
+          status="done"
+          handleDelete={handleDelete}
+        />
       </main>
     </div>
   );
