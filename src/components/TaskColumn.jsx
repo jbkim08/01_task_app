@@ -1,5 +1,6 @@
 import "./TaskColumn.css";
 import Todo from "../assets/direct-hit.png";
+import TaskCard from "./TaskCard";
 
 export default function TaskColumn({ title, icon }) {
   return (
@@ -8,6 +9,8 @@ export default function TaskColumn({ title, icon }) {
         <img className="task_column_icon" src={icon} alt="" />
         {title}
       </h2>
+
+      <TaskCard />
     </section>
   );
 }
