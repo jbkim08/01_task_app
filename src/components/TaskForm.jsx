@@ -9,6 +9,10 @@ export default function TaskForm() {
     status: "todo",
     tags: [],
   });
+  //선택 태그가 이미 있으면 true 아니면 false 리턴
+  const checkTag = (tag) => {
+    return taskData.tags.some((item) => item === tag);
+  };
   const selectTag = (tag) => {
     //태그가 이미 있으면 삭제 없으면 추가
     if (taskData.tags.some((item) => item === tag)) {
@@ -48,10 +52,26 @@ export default function TaskForm() {
 
         <div className="task_form_bottom_line">
           <div>
-            <Tag tagName="HTML" selectTag={selectTag} />
-            <Tag tagName="CSS" selectTag={selectTag} />
-            <Tag tagName="JavaScript" selectTag={selectTag} />
-            <Tag tagName="React" selectTag={selectTag} />
+            <Tag
+              tagName="HTML"
+              selectTag={selectTag}
+              selected={checkTag("HTML")}
+            />
+            <Tag
+              tagName="CSS"
+              selectTag={selectTag}
+              selected={checkTag("CSS")}
+            />
+            <Tag
+              tagName="JavaScript"
+              selectTag={selectTag}
+              selected={checkTag("JavaScript")}
+            />
+            <Tag
+              tagName="React"
+              selectTag={selectTag}
+              selected={checkTag("React")}
+            />
           </div>
           <div>
             <select
