@@ -10,8 +10,19 @@ export default function TaskForm() {
     tags: [],
   });
   const selectTag = (tag) => {
-    console.log(tag);
+    //태그가 이미 있으면 삭제 없으면 추가
+    if (taskData.tags.some((item) => item === tag)) {
+      const filterTags = taskData.tags.filter((item) => item !== tag);
+      setTaskData((prev) => {
+        return { ...prev, tags: filterTags };
+      });
+    } else {
+      setTaskData((prev) => {
+        return { ...prev, tags: [...prev.tags, tag] };
+      });
+    }
   };
+  console.log(taskData.tags); //태그 선택을 계속 확인
   const handleChange = (e) => {
     const { name, value } = e.target;
     //이전의 할일객체 값을 새로운 값으로 업데이트
