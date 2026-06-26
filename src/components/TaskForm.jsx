@@ -40,6 +40,12 @@ export default function TaskForm({ setTasks }) {
     setTasks((prev) => {
       return [...prev, taskData]; //새 할일 추가
     });
+    //초기값으로 리셋
+    setTaskData({
+      task: "",
+      status: "todo",
+      tags: [],
+    });
   };
   return (
     <header className="app_header">
