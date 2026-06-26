@@ -7,7 +7,11 @@ export default function TaskForm() {
   const [taskData, setTaskData] = useState({
     task: "",
     status: "todo",
+    tags: [],
   });
+  const selectTag = (tag) => {
+    console.log(tag);
+  };
   const handleChange = (e) => {
     const { name, value } = e.target;
     //이전의 할일객체 값을 새로운 값으로 업데이트
@@ -33,10 +37,10 @@ export default function TaskForm() {
 
         <div className="task_form_bottom_line">
           <div>
-            <Tag tagName="HTML" />
-            <Tag tagName="CSS" />
-            <Tag tagName="JavaScript" />
-            <Tag tagName="React" />
+            <Tag tagName="HTML" selectTag={selectTag} />
+            <Tag tagName="CSS" selectTag={selectTag} />
+            <Tag tagName="JavaScript" selectTag={selectTag} />
+            <Tag tagName="React" selectTag={selectTag} />
           </div>
           <div>
             <select
