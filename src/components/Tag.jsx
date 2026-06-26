@@ -1,6 +1,6 @@
 import "./Tag.css";
 
-export default function Tag({ tagName, selectTag, selected }) {
+export default function Tag({ tagName, selectTag, selected, disabled }) {
   const tagStyle = {
     HTML: { backgroundColor: "#fda821" },
     CSS: { backgroundColor: "#15d4c8" },
@@ -11,6 +11,7 @@ export default function Tag({ tagName, selectTag, selected }) {
   return (
     //버튼의 타입을 버튼으로 해야 submit 이벤트 발생안함
     <button
+      disabled={disabled}
       style={selected ? tagStyle[tagName] : tagStyle.default}
       type="button"
       className="tag"
