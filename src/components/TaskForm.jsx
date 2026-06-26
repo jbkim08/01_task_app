@@ -24,6 +24,7 @@ export default function TaskForm() {
       <form onSubmit={handleSubmit}>
         <input
           name="task"
+          value={taskData.task}
           onChange={handleChange}
           type="text"
           className="task_input"
@@ -39,6 +40,7 @@ export default function TaskForm() {
           </div>
           <div>
             <select
+              value={taskData.status}
               onChange={handleChange}
               name="status"
               className="task_status"
