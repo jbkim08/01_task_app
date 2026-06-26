@@ -11,11 +11,11 @@ export default function Tag({ tagName, selectTag, selected, disabled }) {
   return (
     //버튼의 타입을 버튼으로 해야 submit 이벤트 발생안함
     <button
-      disabled={disabled}
+      // disabled={disabled}
       style={selected ? tagStyle[tagName] : tagStyle.default}
       type="button"
       className="tag"
-      onClick={() => selectTag(tagName)}
+      onClick={disabled ? () => {} : () => selectTag(tagName)}
     >
       {tagName}
     </button>
